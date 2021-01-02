@@ -14,7 +14,7 @@ function Timer({ count, time }) {
       <Progress
         className={styles.timer}
         colorScheme={count < 5 ? "red" : "green"}
-        height="3vh"
+        height="2vh"
         value={calculateValue()}
       />
     </div>

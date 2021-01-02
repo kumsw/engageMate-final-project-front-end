@@ -33,11 +33,12 @@ function PtView({ data, submit, time, count }) {
 
   return (
     <div className={style.container}>
-      <h1>{data.question}</h1>
+      <h1>{data.question || "No Question Set"}</h1>
       <Thumb value={value} />
       <Slider
+        width="80%"
         aria-label="slider-ex-1"
-        defaultValue={30}
+        defaultValue={50}
         onChangeEnd={(val) => setValue(val)}
         isDisabled={count > 0 ? false : true}
       >
@@ -48,7 +49,7 @@ function PtView({ data, submit, time, count }) {
       </Slider>
       <h3>Value: {value}%</h3>
       <p>
-        {data.responses}/{data.participants} {<Icon as={MdPeople} />}
+        {data.responses || 0}/{data.participants || 0} {<Icon as={MdPeople} />}
       </p>
       <p>{count}</p>
       <Timer count={count} time={time} />

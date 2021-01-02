@@ -54,9 +54,10 @@ function SkView({ data, startSession, endSession, count, time, setTime }) {
       <Thumb value={data.outcome} />
 
       <div className={style.valueInformation}>
-        <h3>Value: {data.outcome}%</h3>
+        <h3>Value: {data.outcome || 0}%</h3>
         <p>
-          {data.responses}/{data.participants} {<Icon as={MdPeople} />}
+          {data.responses || 0}/{data.participants || 0}{" "}
+          {<Icon as={MdPeople} />}
         </p>
       </div>
 

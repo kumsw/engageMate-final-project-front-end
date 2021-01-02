@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/navBar";
-import "./index.module.css";
+import style from "./index.module.css";
 import { Button } from "@chakra-ui/react";
 import PtView from "../../components/ptView";
 import SkView from "../../components/skView";
@@ -74,10 +74,14 @@ const Thumbometer = () => {
   }
 
   return (
-    <main>
+    <main className={style.main}>
       <NavBar />
-      <h1>Thumbometer</h1>
-      <Button colorScheme="blue" onClick={() => setSpeakerView(!speakerView)}>
+      <h1 className={style.title}>Thumbometer</h1>
+      <Button
+        colorScheme="blue"
+        size="sm"
+        onClick={() => setSpeakerView(!speakerView)}
+      >
         {speakerView ? "Show ptView" : "Show skView"}
       </Button>
       {speakerView && (
