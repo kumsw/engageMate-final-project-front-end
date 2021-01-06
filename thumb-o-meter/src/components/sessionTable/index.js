@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./index.module.css";
 import {
   Table,
@@ -12,7 +12,16 @@ import {
 } from "@chakra-ui/react";
 import { IoTrashBinOutline } from "react-icons/io5";
 
-function sessionTable({ tableData, deleteSession }) {
+function SessionTable({ tableData, deleteSession }) {
+  // Filter by Throwaway
+  let filteredData;
+  function filterByThrowaway(value) {
+    filteredData = tableData.filter((session) => session.throwaway === value);
+  }
+  useEffect(() => {
+    filterByThrowaway(true);
+  }, []);
+
   return (
     <Table variant="simple">
       <TableCaption placement="top">Registered users</TableCaption>
@@ -29,7 +38,7 @@ function sessionTable({ tableData, deleteSession }) {
         </Tr>
       </Thead>
       <Tbody>
-        {tableData.map((session, index) => {
+        {filteredData.map((session, index) => {
           return (
             <Tr key={index}>
               <Td>
@@ -53,4 +62,4 @@ function sessionTable({ tableData, deleteSession }) {
   );
 }
 
-export default sessionTable;
+export default SessionTable;
