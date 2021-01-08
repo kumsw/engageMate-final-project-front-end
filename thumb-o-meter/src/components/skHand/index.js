@@ -25,16 +25,16 @@ function SkHand({ usersList, handUsers }) {
     //send a message to back end sockets to remove that user
   }
 
-  function playSound() {
-    console.log("sound played");
-  }
+  // function playSound() {
+  //   console.log("sound played");
+  // }
 
   useEffect(() => {
-    let intervalId = setInterval(() => {
-      hands.length > 0 && playSound();
+    //   let intervalId = setInterval(() => {
+    //     hands.length > 0 && playSound();
 
-      //clearInterval(intervalId);
-    }, 5000);
+    //     //clearInterval(intervalId);
+    //   }, 5000);
 
     socket.emit("raisehandroom", {
       name: name,
@@ -46,6 +46,14 @@ function SkHand({ usersList, handUsers }) {
       setHands(handRaiseData);
       console.log(hands);
     });
+
+    if (window.location.pathname === "/raisehand") {
+      console.log(window.location.pathname);
+      console.log("hello");
+    } else {
+      console.log("goodbye");
+      socket.emit("leaveraisehandroom");
+    }
   }, [hands]);
   return (
     <div className={styles.container} style={{ backgroundColor: myColor }}>
