@@ -13,10 +13,10 @@ const Menu = ({ bg, color }) => {
   const context = useSocketContext();
   const socket = context[0];
   const loggedUser = result[2];
-  const name = loggedUser?.given_name;
+  const name = loggedUser;
   useEffect(() => {
     socket.emit("mainmenuroom", {
-      name: name,
+      name: name.nickname,
       room: "mainmenu",
     });
   }, []);

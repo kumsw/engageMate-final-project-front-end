@@ -1,6 +1,6 @@
 function speakerLiveQuizSession() {
   describe("Speaker starting a live quiz session", () => {
-    it("Find select a question drop down, select custom question and input testing?", () => {
+    it("Find select a question drop down", () => {
       cy.get("div")
         .should("have.class", "skPoll_container__22UU2")
         .get("form")
@@ -9,10 +9,16 @@ function speakerLiveQuizSession() {
         .get("option")
         .eq(0)
         .contains("Select a question");
+    });
+
+    it("Select custom question from dropdown", () => {
       cy.get("select")
         .should("have.class", "chakra-select css-18wj7tk")
         .select("Set a custom question")
         .should("have.value", "custom");
+    });
+
+    it("Get input from custom question and type into it", () => {
       cy.get("input")
         .should("have.class", "chakra-input css-1j4w011")
         .type("Testing?");
@@ -35,6 +41,7 @@ function speakerLiveQuizSession() {
         .eq(1)
         .type("Option 1");
     });
+
     it("Get the input field for option 2 and type text into it", () => {
       cy.get("div")
         .should("have.class", "skPoll_container__22UU2")
@@ -50,6 +57,7 @@ function speakerLiveQuizSession() {
         .eq(3)
         .type("Option 2");
     });
+
     it("Get the input field for option 3 and type text into it", () => {
       cy.get("div")
         .should("have.class", "skPoll_container__22UU2")
@@ -65,6 +73,7 @@ function speakerLiveQuizSession() {
         .eq(5)
         .type("Option 3");
     });
+
     it("Make an option 4 and then delete it", () => {
       cy.get("div")
         .should("have.class", "skPoll_container__22UU2")
@@ -75,6 +84,7 @@ function speakerLiveQuizSession() {
         .should("have.class", "chakra-button css-pazafr")
         .eq(3)
         .click();
+      cy.wait(1000);
       cy.get("div")
         .should("have.class", "skPoll_container__22UU2")
         .get("form")
@@ -84,18 +94,22 @@ function speakerLiveQuizSession() {
         .should("have.class", "chakra-button css-102nuie")
         .eq(3)
         .click();
+      cy.wait(1000);
     });
+
     it("Select the correct answer", () => {
       cy.get("input")
         .should("have.class", "chakra-input css-k8y3ie")
         .eq(2)
         .click();
     });
+
     it("Submit the quiz to participant", () => {
       cy.get("button")
         .should("have.class", "chakra-button css-102nuie")
         .contains("Submit")
         .click();
+      cy.wait(1000);
     });
   });
 }

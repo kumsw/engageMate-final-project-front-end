@@ -25,6 +25,7 @@ function participantQuizSession() {
         .contains("Option 1")
         .find("button")
         .click();
+      cy.wait(1000);
     });
     it("Submit participant answer", () => {
       cy.get("div")
@@ -33,6 +34,7 @@ function participantQuizSession() {
         .should("have.class", "chakra-button css-1is8iqt")
         .contains("Submit")
         .click();
+      cy.wait(1000);
     });
     it("Check participant answer correct", () => {
       cy.get("main")
@@ -53,6 +55,7 @@ function participantQuizSession() {
         .should("have.class", "css-tez3s")
         .eq(1)
         .should("have.css", "background-color", "rgb(56, 161, 105)");
+      cy.wait(1500);
     });
   });
 }

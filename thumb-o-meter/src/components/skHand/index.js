@@ -16,7 +16,7 @@ function SkHand() {
   const result = useRoleContext();
 
   const loggedUser = result[2];
-  const name = loggedUser?.given_name || "Ben";
+  const name = loggedUser;
 
   function createNotifications(handData) {
     console.log({ handData });
@@ -25,7 +25,7 @@ function SkHand() {
       body: `${handData.topic}`,
       icon: "/raisehand.png",
       timeout: 4000,
-      onClick: function() {
+      onClick: function () {
         window.focus();
         this.close();
       },
@@ -59,7 +59,7 @@ function SkHand() {
 
   useEffect(() => {
     socket.emit("raisehandroom", {
-      name: name,
+      name: name.nickname,
       room: "raisehand",
     });
 
