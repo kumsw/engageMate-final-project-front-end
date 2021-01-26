@@ -2,7 +2,7 @@
 
 function checkingForThumbOMeterFeature() {
   describe("Checking feature menu of app for Thumbometer and navigating to page", () => {
-    it("Check for Thumbometer heading under icon by p tag", () => {
+    it("Check for Thumbometer heading under icon by p tag and contains correct text", () => {
       cy.wait(1000);
       cy.get("section")
         .eq(0)
@@ -16,7 +16,7 @@ function checkingForThumbOMeterFeature() {
       cy.get("section").eq(0).find("a").click();
     });
 
-    it("Get the heading once on Thumbometer page and confirm has 'Thumbometer' as text", () => {
+    it("Get heading on Thumbometer page and confirm has 'Thumbometer' as text", () => {
       cy.wait(1000);
       cy.get("h2")
         .should(

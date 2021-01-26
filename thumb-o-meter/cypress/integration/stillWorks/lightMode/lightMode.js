@@ -1,6 +1,6 @@
 function lightMode() {
-  describe("Demonstrating changing to light mode", () => {
-    it("should get the button that controls light mode and clicks it", () => {
+  describe("Changing to light mode", () => {
+    it("Get the button that controls light mode and clicks it", () => {
       //changes to light mode
       // cy.wait(1000);
       cy.get("button")

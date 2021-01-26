@@ -17,7 +17,7 @@ function PtHand() {
   const result = useRoleContext();
 
   const loggedUser = result[2];
-  const name = loggedUser?.given_name || loggedUser?.nickname;
+  const name = loggedUser.nickname;
   const picture = loggedUser?.picture;
 
   useEffect(() => {
@@ -39,7 +39,11 @@ function PtHand() {
   }
 
   function raiseHand() {
-    socket.emit("handRaised", { name: name, topic: topic, picture: picture });
+    socket.emit("handRaised", {
+      name: name.nickname,
+      topic: topic,
+      picture: picture,
+    });
 
     console.log(isRaised);
   }
