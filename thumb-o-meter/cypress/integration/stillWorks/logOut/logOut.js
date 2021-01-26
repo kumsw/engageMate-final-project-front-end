@@ -3,7 +3,7 @@
 
 function logOut() {
   describe("Log out of app", () => {
-    it("Get the logout button by going through the nav bar and div elements checking them with their class names, confirm has 'Log Out' as text and then click the 'Log Out' button", () => {
+    it("Get logout button, confirm has 'Log Out' as text and then clicks it", () => {
       cy.wait(1000);
       cy.get("nav")
         .should("have.class", "navBar_container__16Rem css-135tgfi")

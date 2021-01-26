@@ -1,6 +1,6 @@
 function darkMode() {
   describe("Demonstrating changing to dark mode", () => {
-    it("should get the button that controls dark mode and clicks it", () => {
+    it("Get the button that controls dark mode and clicks it", () => {
       //changing to dark mode
       // cy.wait(1000);
       cy.get("button")

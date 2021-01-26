@@ -1,14 +1,12 @@
 function participantRaiseHandSession() {
   describe("Participant raising hand session", () => {
-    it("Find input field and type topic into it, find image and click to raise the hand", () => {
+    it("Find input field and type topic into it", () => {
       cy.get("input")
         .should("have.class", "chakra-input css-1m7lgs4")
         .type("Test?")
         .wait(1500);
     });
-  });
 
-  describe("Participant raising hand session", () => {
     it("Find image and click to raise the hand", () => {
       cy.get("img")
         .eq(1)
