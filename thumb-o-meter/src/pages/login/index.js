@@ -1,7 +1,7 @@
 import React from "react";
 import LoginButton from "../../components/loginButton";
 import styles from "./index.module.css";
-import { Flex, Center, Box, Text, VStack, HStack } from "@chakra-ui/react";
+import { Center, Box, Text, HStack } from "@chakra-ui/react";
 import Subheading from "../../components/subheading";
 
 function Login() {
@@ -11,7 +11,7 @@ function Login() {
         {" "}
         <img
           className={styles.myImg}
-          src="/circleLogo.png"
+          src="images/circleLogo.png"
           alt="EngageMate Logo"
         />
         <Box className={styles.logoBox}>

@@ -5,7 +5,7 @@ function Thumb({ value, myColor }) {
   return (
     <div className={style.container} style={{ backgroundColor: myColor }}>
       <img
-        src="/thumb.png"
+        src="images/thumb.png"
         alt="Thumbometer Thumb Icon"
         className={style.thumb}
         style={{

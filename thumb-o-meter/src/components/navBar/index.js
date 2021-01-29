@@ -78,7 +78,7 @@ const Header = () => {
           {" "}
           <div>
             <HStack className={styles.logo}>
-              <img src="circleLogo.png" alt="" />{" "}
+              <img src="images/circleLogo.png" alt="" />{" "}
               <p className={styles.logoText}>EngageMate</p>
             </HStack>
           </div>{" "}

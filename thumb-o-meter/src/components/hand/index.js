@@ -16,7 +16,7 @@ function Hand({ isRaised, setIsRaised, raiseHand, lowerHand, handleClick }) {
       className={styles.container}
     >
       <img
-        src={isRaised ? "/raisehand.png" : "/handDown.png"}
+        src={isRaised ? "images/raisehand.png" : "images/handDown.png"}
         alt="Hand Raise Icon"
         className={styles.hand}
       ></img>

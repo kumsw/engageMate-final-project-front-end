@@ -8,7 +8,7 @@ import {
 const features = [
   {
     alt: "thumbometer",
-    src: "/thumb.png",
+    src: "images/thumb.png",
     link: "/thumb",
     icon: { FaThumbsUp },
     heading: "Thumbometer",
@@ -18,7 +18,7 @@ const features = [
   },
   {
     alt: "raisehand",
-    src: "/raisehand.png",
+    src: "images/raisehand.png",
     link: "/raisehand",
     icon: { FaHandPaper },
     heading: "Raise a Hand",
@@ -28,7 +28,7 @@ const features = [
 
   {
     alt: "livequiz",
-    src: "/quizzical.png",
+    src: "images/quizzical.png",
     link: "/quiz",
     icon: { FaQuestionCircle },
     heading: "Live Quiz",
@@ -40,7 +40,7 @@ const features = [
 const coachFeatures = [
   {
     alt: "thumbometer",
-    src: "/thumb.png",
+    src: "images/thumb.png",
     link: "/thumb",
     icon: { FaThumbsUp },
     heading: "Thumbometer",
@@ -50,7 +50,7 @@ const coachFeatures = [
   },
   {
     alt: "raisehand",
-    src: "/raisehand.png",
+    src: "images/raisehand.png",
     link: "/raisehand",
     icon: { FaHandPaper },
     heading: "Raise a Hand",
@@ -60,7 +60,7 @@ const coachFeatures = [
 
   {
     alt: "livequiz",
-    src: "/quizzical.png",
+    src: "images/quizzical.png",
     link: "/quiz",
     icon: { FaQuestionCircle },
     heading: "Live Quiz",
@@ -69,7 +69,7 @@ const coachFeatures = [
   },
   {
     alt: "djDeck",
-    src: "/music.png",
+    src: "images/music.png",
     link: "/deck",
     icon: { FaMusic },
     heading: "DJ Deck",

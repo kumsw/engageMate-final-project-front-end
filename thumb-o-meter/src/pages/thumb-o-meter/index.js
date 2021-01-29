@@ -17,7 +17,7 @@ const { url } = config;
 // const ENDPOINT = url;
 // let socket;
 
-const Thumbometer = () => {
+const Thumbometer = ({ guest }) => {
   // const [speakerView, setSpeakerView] = useState();
 
   const [data, setData] = useState({});

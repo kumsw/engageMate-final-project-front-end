@@ -42,7 +42,7 @@ const Authorised = () => {
       const result = await data.json();
       console.log(result.success);
       result.success === false
-        ? setRole("unauthorised")
+        ? setRole("bootcamper")
         : setRole(result.data.role);
       console.log(role);
     }
@@ -58,9 +58,9 @@ const Authorised = () => {
           <Route path="/admin">
             <Admin />
           </Route>
-          <Route path="/unauthorised">
+          {/* <Route path="/unauthorised">
             <Unauthorised />
-          </Route>
+          </Route> */}
           <Route path="/raisehand">
             <RaiseHand bg={bg} color={color} />
           </Route>
@@ -71,11 +71,11 @@ const Authorised = () => {
             <Deck bg={bg} color={color} />
           </Route>
           <Route path="/thumb">
-            <Thumbometer />
+            <Thumbometer guest={"bootcamper"} />
           </Route>
           <Route exact path="/">
-            {role === "unauthorised" ? (
-              <FeaturedMenu role={"bootcamper"} />
+            {role === "bootcamper" ? (
+              <FeaturedMenu guest={"bootcamper"} />
             ) : (
               <FeaturedMenu role={role} />
             )}
