@@ -75,7 +75,7 @@ const Authorised = () => {
           </Route>
           <Route exact path="/">
             {role === "unauthorised" ? (
-              <Unauthorised />
+              <FeaturedMenu role={"bootcamper"} />
             ) : (
               <FeaturedMenu role={role} />
             )}
