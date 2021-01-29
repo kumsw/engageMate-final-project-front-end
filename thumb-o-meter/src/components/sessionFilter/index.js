@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./index.module.css";
-import moment from "moment";
-import { calcScheduleDate, Bootcamp_Start, filterData } from "./dateFuncs";
+import { filterData } from "./dateFuncs";
 import {
   Accordion,
   AccordionItem,
@@ -19,7 +18,7 @@ import {
   NumberInputField,
 } from "@chakra-ui/react";
 
-function SessionFilter({ tableData, filteredData, setFilteredData }) {
+function SessionFilter({ tableData, setFilteredData }) {
   const [searchObj, setsearchObj] = useState({
     week: "",
     day: "",

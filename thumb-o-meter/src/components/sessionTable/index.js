@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import style from "./index.module.css";
+import React, { useState } from "react";
 import { calcScheduleDate } from "../sessionFilter/dateFuncs";
 import {
   Table,

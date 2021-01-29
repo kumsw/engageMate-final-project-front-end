@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./index.module.css";
 import { Button } from "@chakra-ui/react";
 import useSocketContext from "../../context/socketContext";
@@ -9,12 +9,10 @@ function StartSession({ message, icon }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log({ message });
+
     try {
       socket.emit("massMessage", { message });
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   }
 
   return (

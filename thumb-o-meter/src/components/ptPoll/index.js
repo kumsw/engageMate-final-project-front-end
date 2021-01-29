@@ -51,40 +51,25 @@ function PtPoll() {
     socket.on("sessionStop", handleSessionStop);
 
     return () => {
-      //cleanup
       socket.off("sessionStop");
     };
   }, []);
 
   function handlePollStart({ data }) {
-    console.log({ data });
     dispatch({ type: "setSession", data: data, view: "session" });
-    console.log({ state }, "set session");
     socket.off("pollStart", handlePollStart);
   }
 
   function handleSessionStop() {
-    //end session, reset question display
-    console.log("stop session");
-
     dispatch({ type: "stopSession", view: "waiting" });
-    console.log({ state }, "session stop");
     socket.on("pollStart", handlePollStart);
   }
 
   function submitVote() {
-    //submits the vote, if choice is set
-    //changes view again to view results (set another state)
     if (state.choice !== "") {
       socket.emit("vote", { data: state.choice });
-
-      // setResults((results) => true);
       dispatch({ type: "setResults", view: "results" });
       dispatch({ type: "choice", data: state.choice });
-      console.log("vote submitted", state.choice);
-      console.log({ state });
-    } else {
-      console.log("choice not set");
     }
   }
 

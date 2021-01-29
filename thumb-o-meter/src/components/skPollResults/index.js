@@ -7,32 +7,24 @@ import useSocketContext from "../../context/socketContext";
 function SkPollResults({ question, stopPoll }) {
   const result = useRoleContext();
   const role = result[0];
-  const loggedUser = result[2];
   const socketdata = useSocketContext();
   const socket = socketdata[0];
   const [data, setData] = useState(question);
-  console.log({ role });
-  console.log({ data });
 
   function calculateProgressBar(option) {
     const totalVotes = data.options.reduce((acc, curr) => acc + curr[2], 0);
     const resultvalue = (option[2] / totalVotes) * 100;
-    console.log(resultvalue);
     return resultvalue;
   }
 
   useEffect(() => {
     socket.on("resultsUpdate", ({ data }) => {
-      console.log({ data }, "skPollResults sockets");
       setData(data);
-      //question, uuid, correct answer, options
-      console.log({ data }, "resultsUpdate");
     });
 
     return () => {
       if (role === "coach") {
         socket.emit("sessionStop");
-        console.log("sessionStopped");
       }
 
       socket.off("resultsUpdate");

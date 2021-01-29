@@ -8,9 +8,8 @@ import Push from "push.js";
 import { ArrowBackIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 function SkHand() {
-  //when hand is raised, server adds them to a list of raised hands - name, pic
   const [hands, setHands] = useState([{ name: "", topic: "No Hands Raised" }]);
-  //const [handsRaised, setHandsRaised] = useState([]);
+
   const context = useSocketContext();
   const socket = context[0];
   const result = useRoleContext();
@@ -19,8 +18,6 @@ function SkHand() {
   const name = loggedUser?.given_name || "Ben";
 
   function createNotifications(handData) {
-    console.log({ handData });
-
     Push.create(`${handData.name} has raised their hand!`, {
       body: `${handData.topic}`,
       icon: "/raisehand.png",
@@ -47,11 +44,7 @@ function SkHand() {
   }
 
   function removeHand(index, id) {
-    //   // immutably remove individual hand raise
-    console.log(id);
-    console.log(socket.id);
     setHands([...hands.slice(0, index), ...hands.slice(index + 1)]);
-    //send a message to back end sockets to remove that user
     socket.emit("speakerLowerHand", {
       id,
     });
@@ -64,22 +57,13 @@ function SkHand() {
     });
 
     const handler = ({ handRaiseData }) => {
-      // setHandsRaised(handRaiseSubmissions);
-      console.log("hand raised info received");
-      //setHands(handRaiseData);
       handleSetHands(handRaiseData);
-      console.log("hands -", hands);
-      console.log({ handRaiseData });
-
       if (handRaiseData.length !== 0) {
         createNotifications(handRaiseData[handRaiseData.length - 1]);
       }
     };
 
     const lowerHandler = ({ handRaiseData }) => {
-      // setHandsRaised(handRaiseSubmissions);
-      console.log("hand raised info received");
-      //setHands(handRaiseData);
       handleSetHands(handRaiseData);
     };
     socket.on("handRaiseInfo", handler);
@@ -87,7 +71,6 @@ function SkHand() {
 
     return () => {
       socket.emit("leaveRaiseHand");
-      console.log("user left room");
       socket.off("handRaiseInfo");
       socket.off("lowerHandRaiseInfo");
     };
@@ -96,8 +79,6 @@ function SkHand() {
   function handleSetHands(data) {
     setHands(data);
   }
-
-  console.log(hands);
 
   return (
     <div
@@ -124,10 +105,7 @@ function SkHand() {
                     className={styles.myBtn}
                     onClick={() => removeHand(i, h.id)}
                   >
-                    <CloseIcon
-                      //style={{ color: "white", width: "1rem", height: "1rem" }}
-                      className={styles.myBtn}
-                    />
+                    <CloseIcon className={styles.myBtn} />
                   </button>
                 </li>
               </ul>

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import FeaturedMenu from "../../pages/featureMenu";
-import Unauthorised from "../unauthorised";
 import useRoleContext from "../../context/roleContext";
 import { config } from "../../config";
 import { useColorModeValue } from "@chakra-ui/react";
@@ -10,9 +9,6 @@ import Admin from "../../pages/admin";
 import Quiz from "../../pages/quiz";
 import Deck from "../../pages/dj-deck";
 import Thumbometer from "../thumb-o-meter";
-
-// import PtHand from "../ptHand";
-// import SkHand from "../skHand";
 
 import RaiseHand from "../../pages/raise-hand";
 
@@ -24,14 +20,8 @@ const Authorised = () => {
   const role = data[0];
   const setRole = data[1];
   const setLoggedUser = data[3];
-  // const loggedUser = data[2];
-
-  // console.log(myRole[2]);
-  // const [role, setRole] = useState("");
 
   const { user } = useAuth0();
-  console.log(user);
-  // const [loggedUser, setLoggedUser] = useState(user);
 
   let url = `${envUrl}/users/${user.email}`;
 
@@ -40,16 +30,12 @@ const Authorised = () => {
       setLoggedUser(user);
       const data = await fetch(url);
       const result = await data.json();
-      console.log(result.success);
       result.success === false
         ? setRole("bootcamper")
         : setRole(result.data.role);
-      console.log(role);
     }
 
     getUsers();
-
-    //loggedUser is the Auth0 information
   }, []);
   return (
     <>
@@ -58,9 +44,6 @@ const Authorised = () => {
           <Route path="/admin">
             <Admin />
           </Route>
-          {/* <Route path="/unauthorised">
-            <Unauthorised />
-          </Route> */}
           <Route path="/raisehand">
             <RaiseHand bg={bg} color={color} />
           </Route>

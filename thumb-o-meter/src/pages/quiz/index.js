@@ -10,7 +10,6 @@ import Title from "../../components/heading";
 const Quiz = ({ bg, color }) => {
   const result = useRoleContext();
   const role = result[0];
-  console.log(role);
   return (
     <Flex>
       <Box className={styles.container} bg={bg} color={color}>

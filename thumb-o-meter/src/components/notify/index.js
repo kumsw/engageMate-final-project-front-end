@@ -17,7 +17,6 @@ const HandNotify = () => {
   }, []);
 
   const handler = ({ handRaiseData }) => {
-    console.log(handRaiseData);
     handleSetHands(handRaiseData);
   };
 
@@ -28,8 +27,6 @@ const HandNotify = () => {
   function handleSetHands(data) {
     setHands(data);
   }
-
-  console.log(hands);
   return (
     <div>
       <p className={hands.length > 0 ? styles.notify : styles.noNotify}>

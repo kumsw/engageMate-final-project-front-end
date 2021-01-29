@@ -3,11 +3,6 @@ import moment from "moment";
 // Bootcamp Start Date
 export const Bootcamp_Start = moment("2020-09-21 00:00");
 
-/**
- *  Function takes in the date string set by moment.JS.
- *  Calculates the week and day from the bootcamp start date.
- *  Returns a string with Week Day
- */
 export function calcScheduleDate(date) {
   // Remove date ordinal (st, nd, rd, th)
   const dateString = moment(date.replace(/(\d+)(st|nd|rd|th)/, "$1"));

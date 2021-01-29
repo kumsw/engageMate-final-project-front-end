@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Input, Stack } from "@chakra-ui/react";
+import React from "react";
+import { Input } from "@chakra-ui/react";
 import style from "./index.module.css";
 
 function AnswerInput(value, func) {

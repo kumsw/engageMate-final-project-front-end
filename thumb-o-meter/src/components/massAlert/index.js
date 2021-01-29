@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./index.module.css";
+
 import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import useSocketContext from "../../context/socketContext";
 
@@ -11,12 +11,9 @@ function MassAlert() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log({ message });
     try {
       socket.emit("massMessage", { message });
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   }
 
   function handleChange(e) {

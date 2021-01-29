@@ -57,7 +57,6 @@ const AddUserForm = ({ updatePage, setUpdatePage }) => {
     if (res.status === 200) {
       //calls the toast function to create a success popup
       successToast();
-      console.log("Success: user added");
       setUpdatePage(!updatePage);
     } else {
       burntToast();

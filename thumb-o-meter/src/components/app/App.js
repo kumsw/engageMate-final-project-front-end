@@ -14,7 +14,6 @@ function App() {
 
   useEffect(() => {
     socket.on("messageToAll", ({ message }) => {
-      console.log("message alert");
       messageToast(message);
     });
 

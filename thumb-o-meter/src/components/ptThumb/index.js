@@ -16,12 +16,6 @@ import Timer from "../timer/index";
 
 function PtView({ data, submit, time, count }) {
   const [myColor, setMyColor] = useState("#7f56f2");
-  // display the question
-  // rotatable thumb
-  // slider
-  // slider value
-  // timer
-
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -29,11 +23,6 @@ function PtView({ data, submit, time, count }) {
       submit(value);
     }
   }, [value]);
-
-  // slider.addEventListener("change", () => {
-  //   sliderVal.innerText = `Value: ${slider.value}`;
-  //   socket.emit("submission", { value: slider.value });
-  // });
   useEffect(() => {
     if (data.outcome === 0) {
       setMyColor("#7f56f2");

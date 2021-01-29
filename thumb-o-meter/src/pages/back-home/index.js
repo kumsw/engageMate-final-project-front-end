@@ -4,8 +4,6 @@ import { createStandaloneToast } from "@chakra-ui/react";
 import FeaturedMenu from "../../pages/featureMenu";
 
 const BackToHome = () => {
-  //function for failed popup
-  //pass in or create an object with {name: "", message: ""}
   function burntToast(error) {
     const toast = createStandaloneToast();
     toast({
@@ -16,7 +14,6 @@ const BackToHome = () => {
       duration: 10000,
       isClosable: true,
     });
-    console.log(error);
   }
 
   useEffect(() => {

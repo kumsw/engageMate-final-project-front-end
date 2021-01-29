@@ -11,17 +11,11 @@ import {
   theme,
   ColorModeProvider,
   CSSReset,
-  extendTheme,
 } from "@chakra-ui/react";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 import { Fonts } from "./globalStyle";
-// const fontTheme = extendTheme({
-//   fonts: {
-//     heading: "Montserrat",
-//     body: "Montserrat",
-//   },
-// });
+
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 

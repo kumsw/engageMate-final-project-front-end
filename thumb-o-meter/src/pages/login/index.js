@@ -28,5 +28,3 @@ function Login() {
 }
 
 export default Login;
-
-// className={styles.loginPage}

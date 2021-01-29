@@ -26,22 +26,15 @@ function SkView({ data, startSession, endSession, count, time, setTime }) {
   const [customTime, setCustomTime] = useState(false);
   const [throwaway, setThrowaway] = useState(false);
   const { isOpen, onToggle } = useDisclosure();
-  console.log({ question });
   function handleSession(e) {
     if (e.target.value !== "custom") {
       setCustom(false);
 
       setQuestion(e.target.value);
-      console.log({ question });
     }
     if (e.target.value === "custom") {
       setCustom(true);
     }
-    //else {
-    //   let customQ = prompt("whats your question?");
-    //   setQuestion(customQ);
-    //   console.log({ question });
-    // }
   }
 
   function handleTimer(e) {
@@ -51,19 +44,11 @@ function SkView({ data, startSession, endSession, count, time, setTime }) {
       setCustomTime(false);
       setTimer(Number(e.target.value));
       setTime(Number(e.target.value));
-      console.log({ timer });
     }
     if (e.target.value === "custom") {
       setCustomTime(true);
       setTimer(5);
-      console.log(customTime);
     }
-    // } else {
-    //   let customT = prompt("How many seconds should be allowed?");
-    //   setTimer(Number(customT));
-    //   setTime(Number(customT));
-    //   console.log({ timer });
-    // }
   }
 
   useEffect(() => {
@@ -95,7 +80,6 @@ function SkView({ data, startSession, endSession, count, time, setTime }) {
                 isDisabled={count > 0 ? true : false}
                 onChange={() => setThrowaway(!throwaway)}
                 colorScheme="green"
-                // style={{ backgroundColor: myColor }}
               />
             </span>
           </Tooltip>
@@ -119,7 +103,7 @@ function SkView({ data, startSession, endSession, count, time, setTime }) {
         <option value="Are you comfortable with moving on?">
           Are you comfortable with moving on?
         </option>
-        {/* custom question */}
+
         <option value="custom">Set a custom question.</option>
       </Select>
       <Input

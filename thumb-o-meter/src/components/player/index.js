@@ -1,14 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { animationOne, animationTwo } from "../../animations";
-import {
-  FaPlay,
-  FaPlayCircle,
-  FaPause,
-  FaPauseCircle,
-  FaStop,
-  FaStopCircle,
-} from "react-icons/fa";
+import { FaPlayCircle, FaPauseCircle, FaStopCircle } from "react-icons/fa";
 
 import styles from "./player.module.css";
 
@@ -25,27 +16,17 @@ const Player = ({ file }) => {
     file.currentTime = 0;
   };
   return (
-    <motion.div
-      className={styles.container}
-      initial="out"
-      animate="in"
-      exit="out"
-      variants={animationOne}
-      transistion={{ duration: 3 }}
-    >
+    <div className={styles.container}>
       <button onClick={() => handlePlay()}>
-        {" "}
-        <FaPlayCircle />{" "}
-      </button>{" "}
+        <FaPlayCircle />
+      </button>
       <button onClick={() => handlePause()}>
-        {" "}
-        <FaPauseCircle />{" "}
-      </button>{" "}
+        <FaPauseCircle />
+      </button>
       <button onClick={() => handleStop()}>
-        {" "}
-        <FaStopCircle />{" "}
-      </button>{" "}
-    </motion.div>
+        <FaStopCircle />
+      </button>
+    </div>
   );
 };
 

@@ -19,7 +19,6 @@ const FeaturedMenu = () => {
 
   useEffect(() => {
     socket.emit("connection");
-
     //return () => socket.disconnect();
   }, []);
 

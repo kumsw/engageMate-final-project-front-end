@@ -25,7 +25,6 @@ import {
 import MassAlert from "../../components/massAlert";
 
 const Admin = () => {
-  // need to sort role authentication so this page only visible to coaches
   const [userTableData, setUserTableData] = useState([]);
   const [sessionTableData, setSessionTableData] = useState([]);
   const [updatePage, setUpdatePage] = useState(false);
@@ -45,7 +44,6 @@ const Admin = () => {
       .then((response) => response.json())
       .then((payload) => setSessionTableData(payload.data))
       .catch((error) => burntToast(error));
-    console.log(sessionTableData);
   }, [updatePage]);
 
   function deleteUser(email) {
@@ -55,23 +53,19 @@ const Admin = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           if (data.success === true) {
-            console.log(data);
             successToast({
               name: "User Delete Success",
               message: "Successfully deleted user from the database.",
             });
-            console.log("success", data.payload);
+
             setUpdatePage(!updatePage);
           } else {
             burntToast({
               name: "Delete User Fail",
               message: "Failed to delete user.",
             });
-            console.log("Failure", data.payload);
           }
-          console.log(data);
         });
     }
   }
@@ -88,14 +82,13 @@ const Admin = () => {
               name: "Session Delete Success",
               message: "Successfully deleted session from the database.",
             });
-            console.log("success! Session deleted");
+
             setUpdatePage(!updatePage);
           } else {
             burntToast({
               name: "Delete Session Fail",
               message: "Failed to delete session",
             });
-            console.log("Failure!");
           }
         });
     }
@@ -120,7 +113,6 @@ const Admin = () => {
       duration: 10000,
       isClosable: true,
     });
-    console.log(error);
   }
 
   return (
@@ -144,7 +136,8 @@ const Admin = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem>
+            {/* Once functionality to add excel file has been fixed this can be uncommented
+             <AccordionItem>
               <AccordionButton>
                 <Box flex="1" textAlign="left">
                   Add Multiple Users
@@ -154,7 +147,7 @@ const Admin = () => {
               <AccordionPanel pb={4}>
                 <Excel />
               </AccordionPanel>
-            </AccordionItem>
+            </AccordionItem> */}
 
             <AccordionItem>
               <AccordionButton>

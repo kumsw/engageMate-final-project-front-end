@@ -40,25 +40,6 @@ const Header = () => {
     });
   });
 
-  function raiseHand() {
-    socket.emit("handRaised", {
-      name: name,
-      topic: "I have a question",
-      picture: picture,
-    });
-    setIsRaised(!isRaised);
-  }
-  function lowerHand() {
-    socket.emit("lowerhand");
-
-    console.log("hand lowered by me");
-    console.log(isRaised);
-    setIsRaised(!isRaised);
-  }
-
-  // emit message from server to this page when speaker lowers hand
-  //
-
   return (
     <Flex
       className={styles.container}
@@ -71,7 +52,6 @@ const Header = () => {
         top: "0",
       }}
     >
-      {/* <Icon as={FaCat} /> */}
       <Center>
         <ThemeToggler />
         <Link to="/">
@@ -113,29 +93,6 @@ const Header = () => {
                   </MenuItems>
                 );
               })}
-          {/* {role === "bootcamper" && (
-            <Box
-              className={styles.raise}
-              onClick={isRaised ? { lowerHand } : { raiseHand }}
-              activeClassName={styles.active}
-            >
-              <div>
-                {isRaised ? (
-                  <img
-                    className={styles.handIcon}
-                    src="/raisehand.png"
-                    alt="hand-icon"
-                  />
-                ) : (
-                  <img
-                    className={styles.handIcon}
-                    src="/handDown.png"
-                    alt="hand-icon"
-                  />
-                )}
-              </div>
-            </Box>
-          )} */}
           <LogoutButton bg={bg} color={color} />
         </Flex>
       </Box>

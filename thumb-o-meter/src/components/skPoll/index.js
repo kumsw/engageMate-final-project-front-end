@@ -22,13 +22,10 @@ function SkPoll() {
 
   useEffect(() => {
     socket.on("resultsUpdate", (obj) => {
-      console.log("Results update received");
       updateResultsObj(obj);
     });
 
-    socket.on("pollStart", ({ data }) => {
-      console.log("data from server at poll start", data);
-    });
+    socket.on("pollStart", ({ data }) => {});
 
     return () => {
       socket.off("resultsUpdate");
@@ -37,13 +34,11 @@ function SkPoll() {
   }, []);
 
   function updateResultsObj(obj) {
-    console.log("Results update received", obj);
     setResultsObj(obj.data);
   }
 
   const arr = [];
   for (let i = 0; i < value; i++) {
-    // console.log(i);
     arr.push(
       <div>
         <Input
@@ -79,7 +74,6 @@ function SkPoll() {
   function remove() {
     arr.pop();
     setValue(value - 1);
-    console.log(arr);
   }
 
   function handleSubmit(e) {
@@ -104,7 +98,6 @@ function SkPoll() {
     if (e.target.value !== "custom") {
       setCustom(false);
       setQuestion(e.target.value);
-      console.log({ question });
     }
     if (e.target.value === "custom") {
       setCustom(true);
@@ -115,7 +108,6 @@ function SkPoll() {
     socket.emit("pollStart", { data });
     setPollStarted(true);
     setResultsObj(data);
-    console.log("Poll started - Data sent to server", { data });
   }
 
   function stopPoll() {
@@ -125,7 +117,6 @@ function SkPoll() {
     setResultsObj((resultsObj) => {});
     setCustom((custom) => false);
     socket.emit("sessionStop");
-    console.log("Speaker has ended poll");
   }
 
   return (

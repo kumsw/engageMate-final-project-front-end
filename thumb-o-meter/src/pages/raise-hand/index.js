@@ -10,7 +10,6 @@ import styles from "./index.module.css";
 const RaiseHand = ({ bg, color }) => {
   const result = useRoleContext();
   const role = result[0];
-  console.log(role);
   return (
     <Flex>
       <Box className={styles.container} bg={bg} color={color}>
@@ -25,9 +24,6 @@ const RaiseHand = ({ bg, color }) => {
               <Title text="Raise Hand" />
             </Text>
           </Center>
-          {/* <Center className={styles.backButton}>
-            <CustomButton link="/" icon={<ArrowBackIcon />} text={"Back"} />
-          </Center> */}
           <Center>
             {role === "coach" && <SkHand />}
             {role === "bootcamper" && <PtHand />}

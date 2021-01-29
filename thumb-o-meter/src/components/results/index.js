@@ -7,9 +7,6 @@ function Results() {
   const [responses, setResponses] = useState(6);
   const [participants, setParticipants] = useState(10);
 
-  //function to setThumbResult from session Data thumb result
-  //set responses value and participants from session Data
-
   return (
     <div className={styles.results}>
       <img
@@ -25,9 +22,6 @@ function Results() {
       </div>
     </div>
   );
-  //takes in session data result as props
-  //display thumb (angle based on %)
-  //display number of responses/participants
 }
 
 export default Results;

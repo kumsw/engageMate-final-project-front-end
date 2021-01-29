@@ -10,7 +10,6 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 function PtHand() {
   const [myColor, setMyColor] = useState("#2C276B");
   const [isRaised, setIsRaised] = useState(false);
-  const [disabled, setDisabled] = useState(false);
   const [topic, setTopic] = useState("");
   const context = useSocketContext();
   const socket = context[0];
@@ -22,14 +21,8 @@ function PtHand() {
 
   useEffect(() => {
     socket.on("participantLowerHand", ({ myUniqueNumber }) => {
-      console.log(myUniqueNumber);
-      console.log(socket.id);
       if (myUniqueNumber === socket.id) {
         changeHandState();
-        console.log(isRaised);
-        console.log("hand lowered by coach");
-      } else {
-        console.log("is this running?");
       }
     });
   }, []);
@@ -40,20 +33,14 @@ function PtHand() {
 
   function raiseHand() {
     socket.emit("handRaised", { name: name, topic: topic, picture: picture });
-
-    console.log(isRaised);
   }
 
   function lowerHand() {
     socket.emit("lowerhand");
-
-    console.log("hand lowered by me");
-    console.log(isRaised);
   }
 
   function handleChange(value) {
     setTopic(value);
-    console.log(topic);
   }
   function handleClick() {
     setTopic("");

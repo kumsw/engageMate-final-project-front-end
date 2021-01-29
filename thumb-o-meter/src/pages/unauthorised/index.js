@@ -3,8 +3,6 @@ import Login from "../../pages/login/index";
 import { createStandaloneToast } from "@chakra-ui/react";
 
 const Unauthorised = () => {
-  //function for failed popup
-  //pass in or create an object with {name: "", message: ""}
   function burntToast(error) {
     const toast = createStandaloneToast();
     toast({
@@ -15,7 +13,6 @@ const Unauthorised = () => {
       duration: 10000,
       isClosable: true,
     });
-    console.log(error);
   }
 
   useEffect(() => {
