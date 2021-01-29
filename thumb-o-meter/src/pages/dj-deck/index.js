@@ -9,16 +9,16 @@ import { Box, Button, Center, Text } from "@chakra-ui/react";
 
 import style from "./deck.module.css";
 
-const art = new Audio("art-attack.mp3");
-const recap = new Audio("debussy.mp3");
-const breakout1 = new Audio("get-in-pair.mp3");
-const breakout2 = new Audio("off-to-the-breakout-rooms.mp3");
-const changes = new Audio("get-your-changes-in.mp3");
-const hackathon = new Audio("hackathon-fridays.mp3");
-const immutable = new Audio("immutable.mp3");
-const waving = new Audio("waving.mp3");
-const chris = new Audio("chris.m4a");
-const engaged = new Audio("engaged.m4a");
+const art = new Audio("sounds/art-attack.mp3");
+const recap = new Audio("sounds/debussy.mp3");
+const breakout1 = new Audio("sounds/get-in-pair.mp3");
+const breakout2 = new Audio("sounds/off-to-the-breakout-rooms.mp3");
+const changes = new Audio("sounds/get-your-changes-in.mp3");
+const hackathon = new Audio("sounds/hackathon-fridays.mp3");
+const immutable = new Audio("sounds/immutable.mp3");
+const waving = new Audio("sounds/waving.mp3");
+const chris = new Audio("sounds/chris.m4a");
+const engaged = new Audio("sounds/engaged.m4a");
 const Deck = ({ bg, color }) => {
   return (
     <Box bg={bg} color={color}>
