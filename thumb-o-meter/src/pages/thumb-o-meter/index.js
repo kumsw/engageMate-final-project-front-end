@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/navBar";
 import styles from "./index.module.css";
-import PtView from "../../components/ptView";
-import SkView from "../../components/skView";
-import ReducerSkView from "../../components/skView/skViewReduce";
+import PtThumb from "../../components/ptThumb";
+import SkThumb from "../../components/skThumb";
+import ReducerSkThumb from "../../components/skThumb/skThumbReduce";
 import Footer from "../../components/footer";
 import Title from "../../components/heading";
 import { createStandaloneToast, LightMode, Text } from "@chakra-ui/react";
@@ -17,7 +17,7 @@ const { url } = config;
 // const ENDPOINT = url;
 // let socket;
 
-const Thumbometer = () => {
+const Thumbometer = ({ guest }) => {
   // const [speakerView, setSpeakerView] = useState();
 
   const [data, setData] = useState({});
@@ -94,6 +94,7 @@ const Thumbometer = () => {
     // Clean up
     return () => {
       socket.emit("leaveThumb");
+
       socket.off("finished", handleFinishEvent);
     };
   }, []);
@@ -143,7 +144,7 @@ const Thumbometer = () => {
         <Center>
           <LightMode>
             {role !== "bootcamper" && (
-              <SkView
+              <SkThumb
                 data={data}
                 startSession={startSession}
                 endSession={endSession}
@@ -155,7 +156,7 @@ const Thumbometer = () => {
               />
             )}
             {role === "bootcamper" && (
-              <PtView
+              <PtThumb
                 data={data}
                 submit={submitData}
                 time={time}
