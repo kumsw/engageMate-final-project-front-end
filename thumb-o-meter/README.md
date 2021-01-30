@@ -1,60 +1,123 @@
-CallbackCats - EngageMate
+# EngageMate - Your real time remote learning companion
 
-Remote teaching delivery? Headache no more!
+**School of Code - Final Project**
 
-https://engagemate.netlify.app/
+##### December - January 2021
 
-The issue:
+Remote teaching delivery? Headache no more! <br/>
+
+![engageMate logo](/public/images/EngageMateImageTextDark.png)
+
+EngageMate is the product of four weeks of agile team work. I worked in a team of six developers to solve the problem: **"How can we improve remote teaching delivery?"**. We created a responsive web application which facilitates live feedback using 4 bespoke features(Thumbometer, Raise Hand, Live Quiz and DJ deck) between _'coaches'_ and _'participants'_ during remote teaching. This was a great oppertunity to utilise all the skills I have learnt over sixteen weeks of learning how to code.
+
+### Take a look
+
+EngageMate is hosted on Netlify: https://engagemate.netlify.app/
+[Frontend Repo](https://github.com/kumsw/engageMate-final-project-front-end)<br/>
+[Backend Repo](https://github.com/kumsw/engageMate-final-project-back-end)<br/>
+
+## Want to see the app in action?
+
+[View demoday presentation](https://www.youtube.com/watch?v=p23oB7cUReQ&t=10s)
+
+We live demo the app as well as discuss the planning, project mangagement, tech stack, challenges, learnings and future plans for EngageMate.
+
+#### The Problem
+
 Problem with remote teaching delivery is that it can be really challenging to encourage engagement and participation, as you don’t get the same live feedback and reception that would in real life, making it difficult to gauge audience understanding.
 
-Component tree:
-https://app.diagrams.net/#G1DSGVzkPr5P02HP182xF4wKlhERirBVkc
-https://app.diagrams.net/#G1wHdObeptwj1x5e1RuMnxqvQrslN7qjOd
+### The Solution
 
-### Are you EngagedMate?
+- Thumbometer feature can help with gauging how everyone is feeling with real time feedback from a thumb response.
+- The Raise Hand feature allows participants to ask questions when they arise. A desktop notification and toast pop is sent to the coach. They can then view the order of hands raised with a short description of the issue.
+- Live Quiz feature helps coached understand if participants are digesting what is being said.
+- DJ Deck adds custom sounds and music and a spotify playlist API to keep things fun and engaging.
 
-BEFORE YOU BEGIN
-You have to make sure that you are in the database of users, there are two different types of user (speaker and participant) giving access to different views, features and tools depending upon your authorisation (more about this later). If you don't have these logging into the app will be a problem.
+**Tech Stack:** HTML, CSS, JavaScript, Socket.io, Push,js, uuid, React, JSX, dotenv, Express.js, Node.js, PostgreSQL, Auth0, Jest, SuperTest, Cypress.io Cloud hosted using Heroku and Netlify.
 
-### Now we can begin
+## To Start
 
-The feature menu is your paracetamol displaying tools that we have designed to help with the headache. The Thumbometer feature can help with gauging how everyone is feeling, are you going at the right speed? The right level? Etc. The Raise A Hand feature can help with being able to ask and answer questions when they arise. Live Poll/Quiz feature can help with making sure that you are digesting what is being said
+Clone the the frontend and backend repos. Download and install npm modules for both front and backend repos. Add .env files for local usage You will need a postgres database to store data.
+
+## Installation
+
+1.  Clone the frontend<br/>
+    `https://github.com/kumsw/engageMate-final-project-front-end`<br/>
+2.  Clone the backend<br/>
+    `https://github.com/kumsw/engageMate-final-project-back-end`<br/>
+3.  Download the required npm modules in both repos.<br/>
+    `npm i`<br/>
+4.  Add a .env file in the root of the frontend folder with the entry<br/>
+    `REACT_APP_url=http://www.localhost:5000`<br/>
+    `REACT_APP_AUTH0_DOMAIN={YOUR AUTH0 CREDENTIALS}`<br/>
+    `REACT_APP_AUTH0_CLIENT_ID={YOUR AUTH0 CREDENTIALS}`<br/>
+    `REACT_APP_clientID={YOUR SPOTIFY API CREDENTIALS}`<br/>
+    `REACT_APP_clientSecret={YOUR SPOTIFY API CREDENTIALS}`<br/>
+
+5.  Add a .env file in the root of the backend folder with the entry<br/>
+    `DATABASE_URL`<br/>
+6.  Run the createTable.js and createSessionTable.js script from the backend folder.<br/>
+    `npm run createTable`<br/>
+    `npm run createSessionTable`<br/>
+7.  Run the populateTable.js and populateSessionTable.js script from the backend folder.<br/>
+    `npm run populateTable`<br/>
+    `npm run populateSessionTable`<br/>
+8.  Open a terminal and start the backend and frontend using:<br/>
+    `npm run start`<br/>
+
+### Details
+
+We used agile ways of work and split the four weeks into short sprints. We spent the first week planning in depth. After analysing user research surveys we ideated solutions and decided on our minimum viable product, the thumbometer. We also used this sprint to explore a range of different technolgies that we could use. We spend time thinking about reusable components so that once we completed the thumbometer we could quickly build out our stretch goal features.
 
 ### Thumbometer
 
-Speaker instructions
-Open the thumbometer feature (either through the nav bar or by clicking on the thumb icon). To give a question you can use the drop down to select one of the preset question options provided or if you select custom an input field is then given and you may type your own. Similar to how you can give a timer you can select one of the preset options from the timer drop down or pick custom and an input field is given and you may type your own (numbers in seconds). Then you can pick start and wait for the results. You will see the results displayed by the rotation of the thumb that has now appeared on the scene. Down is low, Up is high. The results are also available as a percentage below as well showing how many participants have already submitted their response. This is handy as if all the participants have already submitted their result and there is time left you can end it with the stop timer button.The time amount is displayed with a progression bar and when it gets down to 5 seconds it turns red, also displayed in digits below. That session data is then submitted to the database for a later date.
+**Coach instructions**
 
-Participant instructions
-Open the thumbometer feature (either through the nav bar or by clicking on the thumb icon).
-When the speaker has submitted a question it appears in a heading. The participant can then use the slider below the thumb to register their response to the question. Left is low, right is high as the participant moves the slider the thumb rotates round. Thumb down - low, thumb up - high. The percentage amount of their response is also displayed. The time amount is displayed with a progression bar and when it gets down to 5 seconds it turns red, also displayed in digits below.
+- Open the thumbometer feature use the drop down to select one of the preset question options provided or select custom option.
+- Select timer preset options or pick custom time in seconds.
+- Start Session will send a notification to participants to enter the Thumb room.
+- Start Timer will begin the timer and responses can be collected.
+- Results will be displayed by the rotation of the thumb the results are also available as a percentage.
+- At end of timer or on stop timer the session data is then submitted to the database and is visible in the admin page.
 
-Raise A Hand
-Speaker instructions
-When a hand is raised a notification is sent to the speaker, the list of hands raised is viewable by opening the raise a hand feature (either through the nav bar or by clicking on the hand icon). The hands are shown in a list along with the name of who submitted it. As well as knowing the name and the order can also know the rough idea of what the question entails (useful as the speaker can see if multiple hands have the same sort of question).
+**Participant instructions**
 
-Participant instructions
-If had a question to ask open the raise a hand feature (either through the nav bar or by clicking on the hand icon). Click the icon of a closed hand this will send a notification to the speaker that a hand has been raised with the name attached to it. An added feature is that could also use the input field to put a topic. Not the whole question but just a few words showing the general idea of what want to ask. The raised hand can be put back down by clicking the hand icon again which has now changed to an open hand (or the speaker could reset the hand from their view).
+- After notification, open the thumbometer feature (either through the nav bar or by clicking on the thumb icon).
+- After coach has submitted a question it appears in a heading. The participant can then use the slider below the thumb to register their response to the question. Left is low, right is high as the participant moves the slider the thumb rotates round.
+- The percentage amount of their response is also displayed. The time amount is displayed with a progression bar and when it gets down to 5 seconds it turns red, also displayed in digits below.
 
-Live Quiz
-Speaker instructions
-If wanted to test your audience could give them an on the spot question, open the live quiz feature (either through the nav bar or by clicking on the face icon). To give a question you can use the drop down to select one of the preset question options provided or if you select custom an input field is then given and you may type your own. After creating answer options for the question with the pencil icon (maximum of 4), select the correct answer with the buttons next to each answer(this will not be visible to the participants) and submit that question.
+### Raise A Hand
 
-Results shown...
+**Coach instructions**
 
-Participant instructions
-When a live quiz poll has been started by the speaker, open the live quiz feature (either through the nav bar or by clicking on the face icon). The question is displayed with the answer options available. Participant selects their answer and this is submitted back to the speaker.
+- On hand raise a notification is sent to the coach, the list of hands raised is viewable by opening the raise a hand feature (either through the nav bar or by clicking on the hand icon).
+- Hands are shown in order with partcipant details and short description.
 
-Results shown...
+**Participant instructions**
 
-Running the DJ Deck
-Admin Access Only
-In order for the Spotify playlist to run, you will need to create an app at https://developer.spotify.com/dashboard/applications once you have created a client id and client secret place these inside of the environment variables. By default the playlist url is defined, by default to the School of Code playlist. To change this just replace the url inside of the spotify component.
+- To raise hand: click the icon of a closed hand this will send a notification to the coach that a hand has been raised with the name attached to it.
+- An added feature is that could also use the input field to put a topic.
+- Hand can be lowered by clicking the hand icon again which has now changed to an open hand (or the speaker could reset the hand from their view).
 
-The sound sample files need to be placed in the sound folder within the public folder. To access them, create a new Audio file and place the file name into a variable.
+### Live Quiz
 
-Example
-Do you want a laugh?
-Here is an example of how our app works. This video is actually us presenting EngageMate when it was in its infancy. When we were more like Callback Kittens.
-(link to demo day video)
-The video shows as well as how the app works, the planning and also what technologies were used in creating it, where they were implemented and how.
+**Coach instructions**
+
+- Can set short question and up to four answers.
+- Select the correct answer with the buttons next to each answer(this will not be visible to the participants) and submit that question.
+- After stop session pressed the results will be shown to coach and particpant.
+
+**Participant instructions**
+
+- On notification head to live quiz.
+- The question is displayed with the answer options available.
+- Selects answer and this is submitted back to the speaker.
+- Once coach ends the session, the results will be viable.
+
+### DJ Deck
+
+**Coach Access Only**
+
+- In order for the Spotify playlist to run, you will need to [register](https://developer.spotify.com/dashboard/applications) to create a client id and client secret place these inside of the .env(as listed above in _installation_). By default the playlist url is defined, by default to the School of Code playlist. To change this just replace the url inside of the spotify component.
+
+- The sound sample files need to be placed in the sound folder within the public folder. To access them, create a new Audio file and place the file name into a variable.
