@@ -6,7 +6,7 @@
 
 Remote teaching delivery? Headache no more! <br/>
 
-![engageMate logo](public/images/EngageMateImageTextDark.png)
+![engageMate logo](thumb-o-meter/public/images/engagemateBanner.png)
 
 EngageMate is the product of four weeks of agile team work. I worked in a team of six developers to solve the problem: **"How can we improve remote teaching delivery?"**. We created a responsive web application which facilitates live feedback using 4 bespoke features(Thumbometer, Raise Hand, Live Quiz and DJ deck) between _'coaches'_ and _'participants'_ during remote teaching. This was a great oppertunity to utilise all the skills I have learnt over sixteen weeks of learning how to code.
 
